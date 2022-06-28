@@ -1,0 +1,113 @@
+{% extends 'modelFormsApp/baserifle.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+{% else %}
+<p>Welcome, new user. Please log in.</p>
+{% endif %}
+<!-- {{todaylist}} -->
+<!-- {{monthlypistollistwomen}} -->
+<h3>40 Shot Match</h3>
+{% if monthlyriflelist40shotwomen %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Shooter Id</th>
+      <th scope="col">Match Score</th>
+      <th scope="col">Higheast series Score</th>
+      <th scope="col">Number of 10's</th>
+      <th scope="col">Cancellation of bad shot</th>
+      <th scope="col">Stability of Sight picture</th>
+      <th scope="col">Body balance</th>
+      <th scope="col">Flow of the shot</th>
+      <th scope="col">90 degree trigger operation</th>
+      <th scope="col">Average shot duration</th>
+      <th scope="col">Follow through</th>
+      <th scope="col">Visualization</th>
+      <th scope="col">Mental Stability</th>
+      <th scope="col">Hydration Level</th>
+      <th scope="col">Fueling</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for each in monthlyriflelist40shotwomen %}
+    <tr>
+      <td scope="row"> {{each.username}} </td>
+      <td> {{each.matchscore}} </td>
+      <td> {{each.higheastseriesscore}} </td>
+      <td> {{each.numberoftens}} </td>
+      <td> {{each.cancellationofbadshot}} </td>
+      <td> {{each.stabilityofsightpicture}} </td>
+      <td> {{each.bodybalance}} </td>
+      <td> {{each.flowoftheshot}} </td>
+      <td> {{each.ninetydegreetriggeroperation}} </td>
+      <td> {{each.averageshotduration}} </td>
+      <td> {{each.followthrough}} </td>
+      <td> {{each.visualization}} </td>
+      <td> {{each.mentalstability}} </td>
+      <td> {{each.hydrationlevel}} </td>
+      <td> {{each.fueling}} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% else %}
+<p>Nothing to display</p>
+{% endif %}
+<h3>60 Shot Match</h3>
+{% if monthlyriflelistwomen %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Shooter Id</th>
+      <th scope="col">Match Score</th>
+      <th scope="col">Higheast series Score</th>
+      <th scope="col">Number of 10's</th>
+      <th scope="col">Cancellation of bad shot</th>
+      <th scope="col">Stability of Sight picture</th>
+      <th scope="col">Body balance</th>
+      <th scope="col">Flow of the shot</th>
+      <th scope="col">90 degree trigger operation</th>
+      <th scope="col">Average shot duration</th>
+      <th scope="col">Follow through</th>
+      <th scope="col">Visualization</th>
+      <th scope="col">Mental Stability</th>
+      <th scope="col">Hydration Level</th>
+      <th scope="col">Fueling</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for each in monthlyriflelistwomen %}
+    <tr>
+      <td scope="row"> {{each.username}} </td>
+      <td> {{each.matchscore}} </td>
+      <td> {{each.higheastseriesscore}} </td>
+      <td> {{each.numberoftens}} </td>
+      <td> {{each.cancellationofbadshot}} </td>
+      <td> {{each.stabilityofsightpicture}} </td>
+      <td> {{each.bodybalance}} </td>
+      <td> {{each.flowoftheshot}} </td>
+      <td> {{each.ninetydegreetriggeroperation}} </td>
+      <td> {{each.averageshotduration}} </td>
+      <td> {{each.followthrough}} </td>
+      <td> {{each.visualization}} </td>
+      <td> {{each.mentalstability}} </td>
+      <td> {{each.hydrationlevel}} </td>
+      <td> {{each.fueling}} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% else %}
+<p>Nothing to display</p>
+{% endif %}
+<!-- <a href="/addnewentry">Add Entries</a>
+<a href="/accounts/logout">Logout</a> -->
+{% endblock %}

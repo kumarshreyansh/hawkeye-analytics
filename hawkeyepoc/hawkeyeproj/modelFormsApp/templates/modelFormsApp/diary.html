@@ -1,0 +1,53 @@
+{% extends 'modelFormsApp/basediary.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+{% else %}
+<p>Welcome, new user. Please log in.</p>
+{% endif %}
+
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap">
+  {% for each in diarylist %}
+  <div class="card text-black bg-light" style="width: 18rem;">
+    {% comment %} <img class="card-img-top" src="..." alt="Card image cap"> {% endcomment %}
+    <div class="card-body">
+      <h5 class="card-title">{{each.username}} {{each.matchdate}}</h5>
+      <h6 class="card-title">Ability of the day</h6>
+      <p class="card-text">{{each.abilityoftheday}}</p>
+      <h6 class="card-title">Correction of the day</h6>
+      <p class="card-text">{{each.correctionoftheday}}</p>
+      <h6 class="card-title">Planning for the next practice</h6>
+      <p class="card-text">{{each.planningforthenextpractice}}</p>
+      {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+    </div>
+  </div>
+  {% endfor %}
+  <div class="container">
+    {% if diarylist.has_other_pages %}
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        {% if diarylist.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ diarylist.previous_page_number }}">Previous</a></li>
+        {% else %}
+        <li class="disabled page-item"><span class="page-link">Previous</span></li>
+        {% endif %}
+        {% for i in diarylist.paginator.page_range %}
+        {% if diarylist.number == i %}
+        <li class="active page-item"><span class="page-link">{{ i }} </span></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if diarylist.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ diarylist.next_page_number }}">Next</a></li>
+        {% else %}
+        <li class="disabled page-item"><span class="page-link">Next</span></li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+
+  {% endblock %}

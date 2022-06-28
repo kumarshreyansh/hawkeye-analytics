@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+    {% else %}
+    <p>Welcome, new user. Please log in.</p>
+    {% endif %}
+    <!-- {{todaylist}} -->
+    {% if todaylist %}
+    {% for each in todaylist %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Shooter Id</th>
+          <th scope="col">Match Score</th>
+          <th scope="col">higheastseriesscore</th>
+          <th scope="col">numberoftens</th>
+          <th scope="col">cancellationofbadshot</th>
+          <th scope="col">stabilityofsightpicture</th>
+          <th scope="col">bodybalance</th>
+          <th scope="col">flowoftheshot</th>
+          <th scope="col">ninetydegreetriggeroperation</th>
+          <th scope="col">averageshotduration</th>
+          <th scope="col">followthrough</th>
+          <th scope="col">visualization</th>
+          <th scope="col">mentalstability</th>
+          <th scope="col">hydrationlevel</th>
+          <th scope="col">fueling</th>
+          <th scope="col">abilityoftheday</th>
+          <th scope="col">correctionoftheday</th>
+          <th scope="col">planningforthenextpractice</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <tr>
+          <td scope="row"> {{each.username}} </td>
+          <td> {{each.matchscore}} </td>
+          <td> {{each.higheastseriesscore}} </td>
+          <td> {{each.numberoftens}} </td>
+          <td> {{each.cancellationofbadshot}} </td>
+          <td> {{each.stabilityofsightpicture}} </td>
+          <td> {{each.bodybalance}} </td>
+          <td> {{each.flowoftheshot}} </td>
+          <td> {{each.ninetydegreetriggeroperation}} </td>
+          <td> {{each.averageshotduration}} </td>
+          <td> {{each.followthrough}} </td>
+          <td> {{each.visualization}} </td>
+          <td> {{each.mentalstability}} </td>
+          <td> {{each.hydrationlevel}} </td>
+          <td> {{each.fueling}} </td>
+          <td> {{each.abilityoftheday}} </td>
+          <td> {{each.correctionoftheday}} </td>
+          <td> {{each.planningforthenextpractice}} </td>
+        </tr>
+      </tbody>
+    </table>
+    {% endfor %}
+    {% else %}
+    <p>Nothing to display</p>
+    {% endif %}
+    <a href="/addnewentry">Add Entries</a><br><br>
+    <a href="/todayrifle">Rifle Today</a>
+    <a href="/todaypistol">Pistol Today</a><br>
+    <a href="/monthlyrifle">Rifle Monthly</a>
+    <a href="/monthlypistol">Pistol Monthly</a><br>
+    <a href="/quarterlyrifle">Rifle Quarterly</a>
+    <a href="/quarterlypistol">Pistol Quarterly</a><br><br><br>
+
+    <a href="/todayriflewomen">Rifle Women's Today</a>
+    <a href="/todayriflemen">Rifle Men's Today</a><br>
+
+    <a href="/monthlyriflewomen">Rifle Women's Monthly</a>
+    <a href="/monthlyriflemen">Rifle Men's Monthly</a><br>
+
+    <a href="/quarterlyriflewomen">Rifle Women's Quarterly</a>
+    <a href="/quarterlyriflemen">Rifle Men's Quarterly</a><br><br><br><br>
+    <a href="/todaypistolwomen">Pistol Women's Today</a>
+    <a href="/todaypistolmen">Pistol Men's Today</a><br>
+
+
+    <a href="/monthlypistolwomen">Pistol Women's Monthly</a>
+    <a href="/monthlypistolmen">Pistol Men's Monthly</a><br>
+    <a href="/quarterlypistolwomen">Pistol Women's Quarterly</a>
+    <a href="/quarterlypistolmen">Pistol Men's Quarterly</a><br>
+    <a href="/monthlyauthuser">My Monthly Score Card</a><br>
+    <a href="/accounts/logout">Logout</a>
+
+    <a href="/profiles/">Profiles</a><br>
+</body>
+</html>

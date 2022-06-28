@@ -1,0 +1,526 @@
+{% extends 'modelFormsApp/basemyprofile.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<p>Welcome {{ user.get_username }}! Thanks for logging in.</p>
+{% else %}
+<p>Welcome, new user. Please log in.</p>
+{% endif %}
+<h3>Today Performace</h3>
+
+{% for each in dailylist %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Shooter Id</th>
+      <th scope="col">Match Date</th>
+      <th scope="col">Match Score</th>
+      <th scope="col">Higheast Series Score</th>
+      <th scope="col">Number of 10's</th>
+      <th scope="col">Cancellation of bad shot</th>
+      <th scope="col">Stability of sight picture</th>
+      <th scope="col">Body balance</th>
+      <th scope="col">Flow of the shot</th>
+      <th scope="col">Ninety degree trigger operation</th>
+      <th scope="col">Average shot duration</th>
+      <th scope="col">Follow through</th>
+      <th scope="col">Visualization</th>
+      <th scope="col">Mental Stability</th>
+      <th scope="col">Hydration level</th>
+      <th scope="col">Fueling</th>
+      <th scope="col">Ability of the day</th>
+      <th scope="col">Correction of the day</th>
+      <th scope="col">Planning for the next practice</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td scope="row"> {{each.username}} </td>
+      <td> {{each.matchDate}} </td>
+      <td> {{each.matchscore}} </td>
+      <td> {{each.higheastseriesscore}} </td>
+      <td> {{each.numberoftens}} </td>
+      <td> {{each.cancellationofbadshot}} </td>
+      <td> {{each.stabilityofsightpicture}} </td>
+      <td> {{each.bodybalance}} </td>
+      <td> {{each.flowoftheshot}} </td>
+      <td> {{each.ninetydegreetriggeroperation}} </td>
+      <td> {{each.averageshotduration}} </td>
+      <td> {{each.followthrough}} </td>
+      <td> {{each.visualization}} </td>
+      <td> {{each.mentalstability}} </td>
+      <td> {{each.hydrationlevel}} </td>
+      <td> {{each.fueling}} </td>
+      <td> {{each.abilityoftheday}} </td>
+      <td> {{each.correctionoftheday}} </td>
+      <td> {{each.planningforthenextpractice}} </td>
+    </tr>
+  </tbody>
+</table>
+{% endfor %}
+</div>
+<!-- <div class="container-fluid">
+  <h3>Monthly Performace</h3>
+  {% if monthlylistauthuser %}
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+      <th scope="col">Match Date</th>
+      <th scope="col">Match Score</th>
+      <th scope="col">Higheast Series Score</th>
+      <th scope="col">Number of 10's</th>
+      <th scope="col">Cancellation of bad shot</th>
+      <th scope="col">Stability of sight picture</th>
+      <th scope="col">Body balance</th>
+      <th scope="col">Flow of the shot</th>
+      <th scope="col">Ninety degree trigger operation</th>
+      <th scope="col">Average shot duration</th>
+      <th scope="col">Follow through</th>
+      <th scope="col">Visualization</th>
+      <th scope="col">Mental Stability</th>
+      <th scope="col">Hydration level</th>
+      <th scope="col">Fueling</th>
+      <th scope="col">Ability of the day</th>
+      <th scope="col">Correction of the day</th>
+      <th scope="col">Planning for the next practice</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr>
+        {% for each in monthlylistauthuser %}
+        <td scope="row"> {{each.username}} </td>
+        <td> {{each.matchDate}} </td>
+        <td> {{each.matchscore}} </td>
+        <td> {{each.higheastseriesscore}} </td>
+        <td> {{each.numberoftens}} </td>
+        <td> {{each.cancellationofbadshot}} </td>
+        <td> {{each.stabilityofsightpicture}} </td>
+        <td> {{each.bodybalance}} </td>
+        <td> {{each.flowoftheshot}} </td>
+        <td> {{each.ninetydegreetriggeroperation}} </td>
+        <td> {{each.averageshotduration}} </td>
+        <td> {{each.followthrough}} </td>
+        <td> {{each.visualization}} </td>
+        <td> {{each.mentalstability}} </td>
+        <td> {{each.hydrationlevel}} </td>
+        <td> {{each.fueling}} </td>
+        <td> {{each.abilityoftheday}} </td>
+        <td> {{each.correctionoftheday}} </td>
+        <td> {{each.planningforthenextpractice}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  {% else %}
+  <p>Nothing to display</p>
+  {% endif %}
+
+</div> -->
+<div class="container-fluid">
+  <h3>Recent Entries</h3>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Match Date</th>
+        <th scope="col">Match Score</th>
+        <th scope="col">Higheast Series Score</th>
+        <th scope="col">Number of 10's</th>
+        <th scope="col">Cancellation of bad shot</th>
+        <th scope="col">Stability of sight picture</th>
+        <th scope="col">Body balance</th>
+        <th scope="col">Flow of the shot</th>
+        <th scope="col">Ninety degree trigger operation</th>
+        <th scope="col">Average shot duration</th>
+        <th scope="col">Follow through</th>
+        <th scope="col">Visualization</th>
+        <th scope="col">Mental Stability</th>
+        <th scope="col">Hydration level</th>
+        <th scope="col">Fueling</th>
+        <th scope="col">Ability of the day</th>
+        <th scope="col">Correction of the day</th>
+        <th scope="col">Planning for the next practice</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in profilequarteruserlist %}
+      <tr>
+        <td scope="row"> {{each.username}} </td>
+        <td> {{each.matchDate}} </td>
+        <td> {{each.matchscore}} </td>
+        <td> {{each.higheastseriesscore}} </td>
+        <td> {{each.numberoftens}} </td>
+        <td> {{each.cancellationofbadshot}} </td>
+        <td> {{each.stabilityofsightpicture}} </td>
+        <td> {{each.bodybalance}} </td>
+        <td> {{each.flowoftheshot}} </td>
+        <td> {{each.ninetydegreetriggeroperation}} </td>
+        <td> {{each.averageshotduration}} </td>
+        <td> {{each.followthrough}} </td>
+        <td> {{each.visualization}} </td>
+        <td> {{each.mentalstability}} </td>
+        <td> {{each.hydrationlevel}} </td>
+        <td> {{each.fueling}} </td>
+        <td> {{each.abilityoftheday}} </td>
+        <td> {{each.correctionoftheday}} </td>
+        <td> {{each.planningforthenextpractice}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+  <div id="container" style="width: 100%;">
+    <canvas id="myprofile_monthlyscore40shot_json" data-url="{% url 'myprofile_monthlyscore40shot_json' %}"></canvas>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script>
+
+    $(function () {
+
+      var $profileuserchart = $("#myprofile_monthlyscore40shot_json");
+      $.ajax({
+        url: $profileuserchart.data("url"),
+        success: function (data) {
+
+          var ctx = $profileuserchart[0].getContext("2d");
+
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: data.labels,
+              datasets: [{
+                label: 'Score',
+                backgroundColor: 'blue',
+                data: data.data
+              }]
+            },
+            options: {
+              responsive: true,
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true,
+                    min: 300,
+                    max: 436
+                  }
+                }]
+              },
+              legend: {
+                position: 'top',
+              },
+              "animation": {
+                "duration": 1,
+                "onComplete": function () {
+                  var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+
+                  ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                  ctx.textAlign = 'center';
+                  ctx.textBaseline = 'bottom';
+
+                  this.data.datasets.forEach(function (dataset, i) {
+                    var meta = chartInstance.controller.getDatasetMeta(i);
+                    meta.data.forEach(function (bar, index) {
+                      var data = dataset.data[index];
+                      ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                    });
+                  });
+                }
+              },
+              title: {
+                display: true,
+                text: 'Monthly Score Chart'
+              }
+            }
+          });
+
+        }
+      });
+
+    });
+
+  </script>
+
+  <div id="container" style="width: 100%;">
+    <canvas id="myprofile_monthlyscore60shot_json" data-url="{% url 'myprofile_monthlyscore60shot_json' %}"></canvas>
+  </div>
+
+
+
+
+  <script>
+
+    $(function () {
+
+      var $profileuserchart = $("#myprofile_monthlyscore60shot_json");
+      $.ajax({
+        url: $profileuserchart.data("url"),
+        success: function (data) {
+
+          var ctx = $profileuserchart[0].getContext("2d");
+
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: data.labels,
+              datasets: [{
+                label: 'Score',
+                backgroundColor: 'blue',
+                data: data.data
+              }]
+            },
+            options: {
+              responsive: true,
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true,
+                    min: 480,
+                    max: 654
+                  }
+                }]
+              },
+              legend: {
+                position: 'top',
+              },
+              "animation": {
+                "duration": 1,
+                "onComplete": function () {
+                  var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+
+                  ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                  ctx.textAlign = 'center';
+                  ctx.textBaseline = 'bottom';
+
+                  this.data.datasets.forEach(function (dataset, i) {
+                    var meta = chartInstance.controller.getDatasetMeta(i);
+                    meta.data.forEach(function (bar, index) {
+                      var data = dataset.data[index];
+                      ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                    });
+                  });
+                }
+              },
+              title: {
+                display: true,
+                text: 'Monthly Score Chart'
+              }
+            }
+          });
+
+        }
+      });
+
+    });
+
+  </script>
+
+  <div id="container" style="width: 100%;">
+    <canvas id="myprofile_quarterlyscore40shot_json"
+      data-url="{% url 'myprofile_quarterlyscore40shot_json' %}"></canvas>
+  </div>
+  <script>
+
+    $(function () {
+
+      var $profileuserchartquarterly = $("#myprofile_quarterlyscore40shot_json");
+      $.ajax({
+        url: $profileuserchartquarterly.data("url"),
+        success: function (data) {
+
+          var ctx = $profileuserchartquarterly[0].getContext("2d");
+
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: data.labels,
+              datasets: [{
+                label: 'Score',
+                backgroundColor: 'blue',
+                data: data.data
+              }]
+            },
+            options: {
+              responsive: true,
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true,
+                    min: 300,
+                    max: 436
+                  }
+                }]
+              },
+              "animation": {
+                "duration": 1,
+                "onComplete": function () {
+                  var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+
+                  ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                  ctx.textAlign = 'center';
+                  ctx.textBaseline = 'bottom';
+
+                  this.data.datasets.forEach(function (dataset, i) {
+                    var meta = chartInstance.controller.getDatasetMeta(i);
+                    meta.data.forEach(function (bar, index) {
+                      var data = dataset.data[index];
+                      ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                    });
+                  });
+                }
+              },
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Quarterly Score Chart'
+              }
+            }
+          });
+
+        }
+      });
+
+    });
+
+  </script>
+
+  <div id="container" style="width: 100%;">
+    <canvas id="myprofile_quarterlyscore60shot_json"
+      data-url="{% url 'myprofile_quarterlyscore60shot_json' %}"></canvas>
+  </div>
+  <script>
+
+    $(function () {
+
+      var $profileuserchartquarterly = $("#myprofile_quarterlyscore60shot_json");
+      $.ajax({
+        url: $profileuserchartquarterly.data("url"),
+        success: function (data) {
+
+          var ctx = $profileuserchartquarterly[0].getContext("2d");
+
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: data.labels,
+              datasets: [{
+                label: 'Score',
+                backgroundColor: 'pink',
+                data: data.data
+              }]
+            },
+            options: {
+              responsive: true,
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true,
+                    min: 480,
+                    max: 654
+                  }
+                }]
+              },
+              legend: {
+                position: 'top',
+              },
+              "animation": {
+                "duration": 1,
+                "onComplete": function () {
+                  var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+
+                  ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                  ctx.textAlign = 'center';
+                  ctx.textBaseline = 'bottom';
+
+                  this.data.datasets.forEach(function (dataset, i) {
+                    var meta = chartInstance.controller.getDatasetMeta(i);
+                    meta.data.forEach(function (bar, index) {
+                      var data = dataset.data[index];
+                      ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                    });
+                  });
+                }
+              },
+              title: {
+                display: true,
+                text: 'Quarterly Score Chart'
+              }
+            }
+          });
+
+        }
+      });
+
+    });
+
+  </script>
+  <!-- <div id="container" style="width: 100%;">
+    <canvas id="myprofile_quarterlybarrel40shot_json" data-url="{% url 'myprofile_quarterlybarrel40shot_json' %}"></canvas>
+  </div>
+  <script>
+
+    $(function () {
+
+      var $profileuserchartquarterlybarrel = $("#myprofile_quarterlybarrel40shot_json");
+      $.ajax({
+        url: $profileuserchartquarterlybarrel.data("url"),
+        success: function (data) {
+
+          var ctx = $profileuserchartquarterlybarrel[0].getContext("2d");
+
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: data.labels,
+              datasets: [{
+                label: 'Score',
+                backgroundColor: 'blue',
+                data: data.data
+              }]
+            },
+            options: {
+              responsive: true,
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true,
+                    min: 0,
+                    max: 10
+                  }
+                }]
+              },
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Barrel Rating Chart'
+              }
+            }
+          });
+
+        }
+      });
+
+    });
+
+  </script> -->
+
+  {% endblock %}

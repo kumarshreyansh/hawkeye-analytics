@@ -1,0 +1,21 @@
+{% extends 'modelFormsApp/baseprofiles.html' %}
+{% load static %}
+{% block content %}
+<div style="display: flex; flex-direction: row; flex-wrap: wrap">
+{% for each in allusers %}
+<div class="card" style="width: 18rem;">
+    {% comment %} <img class="card-img-top" width="200" height="250" src="https://source.unsplash.com/400x400/?gun" alt="image not found"> {% endcomment %}
+    <img class="card-img-top" width="200" height="250" src="/static/modelFormsApp/{{each.username}}.jpeg" alt="image not found">
+    {% comment %} <img src="..." class="card-img-top" alt="..."> {% endcomment %}
+    <div class="card-body">
+      {% comment %} <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> {% endcomment %}
+      <a href="/profilesuser/{{each.username}}" class="btn btn-secondary">{{each.username}}</a>
+    </div>
+  </div>
+{% comment %} <a href="/profilesuser/{{each.username}}">{{each.username}}</a><br> {% endcomment %}
+{% endfor %}
+{% endblock %}
+
+
+{% comment %} {% static 'modelFormsApp/shotgun.jpeg' %} {% endcomment %}

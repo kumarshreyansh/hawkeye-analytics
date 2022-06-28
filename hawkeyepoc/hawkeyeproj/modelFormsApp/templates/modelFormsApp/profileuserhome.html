@@ -1,0 +1,156 @@
+{% extends 'modelFormsApp/baseprofiles.html' %}
+
+{% block content %}
+<b>Performace Statistics of {{userstring}}</b>
+<h1>Today Performace</h1>
+<div id="container" style="width: 100%;">
+    <canvas id="profileuser_chart" data-url="{% url 'profileuser_chart' %}"></canvas>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script>
+
+    $(function () {
+
+        var $profileuserchart = $("#profileuser_chart");
+        $.ajax({
+            url: $profileuserchart.data("url"),
+            success: function (data) {
+
+                var ctx = $profileuserchart[0].getContext("2d");
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Score',
+                            backgroundColor: 'blue',
+                            data: data.data
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        legend: {
+                            position: 'top',
+                        },
+                        "animation": {
+                            "duration": 1,
+                          "onComplete": function() {
+                            var chartInstance = this.chart,
+                              ctx = chartInstance.ctx;
+             
+                            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'bottom';
+             
+                            this.data.datasets.forEach(function(dataset, i) {
+                              var meta = chartInstance.controller.getDatasetMeta(i);
+                              meta.data.forEach(function(bar, index) {
+                                var data = dataset.data[index];
+                                ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                              });
+                            });
+                          }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Monthly Score Chart'
+                        }
+                    }
+                });
+
+            }
+        });
+
+    });
+
+</script>
+<div id="container" style="width: 100%;">
+    <canvas id="profileuser_chartquarterly" data-url="{% url 'profileuser_chartquarterly' %}"></canvas>
+</div>
+<script>
+
+    $(function () {
+
+        var $profileuserchartquarterly = $("#profileuser_chartquarterly");
+        $.ajax({
+            url: $profileuserchartquarterly.data("url"),
+            success: function (data) {
+
+                var ctx = $profileuserchartquarterly[0].getContext("2d");
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Score',
+                            backgroundColor: 'blue',
+                            data: data.data
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Quarterly Score Chart'
+                        }
+                    }
+                });
+
+            }
+        });
+
+    });
+
+</script>
+<div id="container" style="width: 100%;">
+    <canvas id="profileuser_chartquarterlybarrel" data-url="{% url 'profileuser_chartquarterlybarrel' %}"></canvas>
+</div>
+<script>
+
+    $(function () {
+
+        var $profileuserchartquarterlybarrel = $("#profileuser_chartquarterlybarrel");
+        $.ajax({
+            url: $profileuserchartquarterlybarrel.data("url"),
+            success: function (data) {
+
+                var ctx = $profileuserchartquarterlybarrel[0].getContext("2d");
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Score',
+                            backgroundColor: 'blue',
+                            data: data.data
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Barrel Rating Chart'
+                        }
+                    }
+                });
+
+            }
+        });
+
+    });
+
+</script>
+{% endblock %}

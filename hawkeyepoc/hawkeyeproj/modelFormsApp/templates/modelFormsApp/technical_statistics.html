@@ -1,0 +1,286 @@
+{% extends 'modelFormsApp/basetechnicalgraph.html' %}
+
+{% block content %}
+<!-- <h3>Top Emerging Shooters</h3>
+<br>
+<br>
+{% for each in pistoltechnicallist40shotdata %}
+{{each}}
+{% endfor %}</br>
+{% for each in pistoltechnicallist60shotdata %}
+{{each}}
+{% endfor %}</br>
+{% for each in rifletechnicallist40shotdata %}
+{{each}}
+{% endfor %}</br>
+{% for each in rifletechnicallist60shotdata %}
+{{each}}
+{% endfor %}</br> -->
+
+<div class="container-fluid">
+  <h3>Top Emerging Shooters(Rifle) - 40 Shots</h3>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Slope</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in rifleemerging40shotlist %}
+      <tr>
+        <td scope="row"> {{each.name}} </td>
+        <td> {{each.slope}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h3>Top Emerging Shooters(Rifle) - 60 Shots</h3>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Slope</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in rifleemerging60shotlist %}
+      <tr>
+        <td scope="row"> {{each.name}} </td>
+        <td> {{each.slope}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h3>Most Consistent Shooters(Rifle) - 40 Shots</h3>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Deviation</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in rifledeviationlist40shotdata %}
+      <tr>
+        <td scope="row"> {{each.name}} </td>
+        <td> {{each.deviation}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- {% for each in rifledeviationlist40shotdata %}
+{{each}}
+{% endfor %} -->
+  <h3>Most Consistent Shooters(Rifle) - 60 Shots</h3>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Deviation</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in rifledeviationlist60shotdata %}
+      <tr>
+        <td scope="row"> {{each.name}} </td>
+        <td> {{each.deviation}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- {% for each in rifledeviationlist60shotdata %}
+{{each}}
+{% endfor %} -->
+
+  <br>
+  <h3>Shooters Lacking Consistency(Rifle) - 40 Shots</h3>
+  <br>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Deviation</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in riflelackingconsistency40shotlist %}
+      <tr>
+        <td scope="row"> {{each.name}} </td>
+        <td> {{each.deviation}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <br>
+  <h3>Shooters Lacking Consistency(Rifle) - 60 Shots</h3>
+  <br>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Deviation</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in riflelackingconsistency60shotlist %}
+      <tr>
+        <td scope="row"> {{each.name}} </td>
+        <td> {{each.deviation}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h3>Top Emerging Shooters(Pistol) - 40 Shots</h3>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Slope</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in pistolemerging40shotlist %}
+      <tr>
+        <td scope="row"> {{each.name}} </td>
+        <td> {{each.slope}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h3>Top Emerging Shooters(Pistol) - 60 Shots</h3>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Slope</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in pistolemerging60shotlist %}
+      <tr>
+        <td scope="row"> {{each.name}} </td>
+        <td> {{each.slope}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h3>Most Consistent Shooters(Pistol) - 40 Shots</h3>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Deviation</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in pistoldeviationlist40shotdata %}
+      <tr>
+        <td scope="row"> {{each.name}} </td>
+        <td> {{each.deviation}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- {% for each in pistoldeviationlist40shotdata %}
+{{each}}
+{% endfor %} -->
+  <h3>Most Consistent Shooters(Pistol) - 60 Shots</h3>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Deviation</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in pistoldeviationlist60shotdata %}
+      <tr>
+        <td scope="row"> {{each.name}} </td>
+        <td> {{each.deviation}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- {% for each in pistoldeviationlist60shotdata %}
+{{each}}
+{% endfor %} -->
+
+  <br>
+  <h3>Shooters Lacking Consistency(Pistol) - 40 Shots</h3>
+  <br>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Deviation</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in pistollackingconsistency40shotlist %}
+      <tr>
+        <td scope="row"> {{each.name}} </td>
+        <td> {{each.deviation}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <br>
+  <h3>Shooters Lacking Consistency(Pistol) - 60 Shots</h3>
+  <br>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shooter Id</th>
+        <th scope="col">Deviation</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each in pistollackingconsistency60shotlist %}
+      <tr>
+        <td scope="row"> {{each.name}} </td>
+        <td> {{each.deviation}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <br>
+  <h3>Shortlisted for Improvement</h3>
+</div>
+{% endblock %}

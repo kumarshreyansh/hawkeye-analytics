@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+    {% else %}
+    <p>Welcome, new user. Please log in.</p>
+    {% endif %}
+    {% if mylist %}
+    {% for each in mylist %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Shooter Id</th>
+            <th>Match Score</th>
+            <th>Match Date</th>
+            <th>weekendmatch</th>
+            <th>Weapon Type</th>
+            <th>flowoftheshot</th>
+            <th>sightpicture</th>
+            <th>posturestability</th>
+            <th>trigger</th>
+            <th>timedis</th>
+            <th>followthr</th>
+            <th>triceptension</th>
+            <th>mindstability</th>
+            <th>mistakesoftheday</th>
+            <th>correctionoftheday</th>
+            <th>diaryhighlights</th>
+            <th>badshotcancellation</th>
+            <th>waterconsumed</th>
+            <th>reappliedtechnique</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> {{each.shooterid}} </td>
+            <td> {{each.matchscore}} </td>
+            <td> {{each.matchDate}} </td>
+            <td> {{each.weekendmatch}} </td>
+            <td> {{each.weapontype}} </td>
+            <td> {{each.flowoftheshot}} </td>
+            <td> {{each.sightpicture}} </td>
+            <td> {{each.posturestability}} </td>
+            <td> {{each.trigger}} </td>
+            <td> {{each.timedis}} </td>
+            <td> {{each.followthr}} </td>
+            <td> {{each.triceptension}} </td>
+            <td> {{each.mindstability}} </td>
+            <td> {{each.mistakesoftheday}} </td>
+            <td> {{each.correctionoftheday}} </td>
+            <td> {{each.diaryhighlights}} </td>
+            <td> {{each.badshotcancellation}} </td>
+            <td> {{each.waterconsumed}} </td>
+            <td> {{each.reappliedtechnique}} </td>
+          </tr>
+        </tbody>
+      </table>
+    {% endfor %}
+    {% else %}
+    <p>Nothing to display</p>
+    {% endif %}
+    <a href="/addnewentry">Add Entries</a>
+    <a href="/accounts/logout">Logout</a>
+</body>
+</html>

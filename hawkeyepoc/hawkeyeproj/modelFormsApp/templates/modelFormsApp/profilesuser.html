@@ -1,0 +1,2252 @@
+{% extends 'modelFormsApp/baseprofiles.html' %}
+
+{% block content %}
+<b>Performace Statistics of {{username}}</b>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuser40shot_json" data-url="{% url 'profilesuser40shot_json' username=username %}"></canvas>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script>
+
+  $(function () {
+
+    var $profileuserchart = $("#profilesuser40shot_json");
+    $.ajax({
+      url: $profileuserchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profileuserchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 300,
+                  max: 436
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Monthly Score Chart'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuser60shot_json" data-url="{% url 'profilesuser60shot_json' username=username %}"></canvas>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script>
+
+  $(function () {
+
+    var $profileuserchart = $("#profilesuser60shot_json");
+    $.ajax({
+      url: $profileuserchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profileuserchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 480,
+                  max: 654
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Monthly Score Chart'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserhigheastseriesscore40shot_json"
+    data-url="{% url 'profilesuserhigheastseriesscore40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserhigheastseriesscorechart = $("#profilesuserhigheastseriesscore40shot_json");
+    $.ajax({
+      url: $profilesuserhigheastseriesscorechart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserhigheastseriesscorechart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 60,
+                  max: 109
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Higheast Series Score'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserhigheastseriesscore60shot_json"
+    data-url="{% url 'profilesuserhigheastseriesscore60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserhigheastseriesscorechart = $("#profilesuserhigheastseriesscore60shot_json");
+    $.ajax({
+      url: $profilesuserhigheastseriesscorechart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserhigheastseriesscorechart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 60,
+                  max: 109
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Higheast Series Score'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesusernumberoftens40shot_json"
+    data-url="{% url 'profilesusernumberoftens40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesusernumberoftenschart = $("#profilesusernumberoftens40shot_json");
+    $.ajax({
+      url: $profilesusernumberoftenschart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesusernumberoftenschart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 40
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Number of 10s'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesusernumberoftens60shot_json"
+    data-url="{% url 'profilesusernumberoftens60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesusernumberoftenschart = $("#profilesusernumberoftens60shot_json");
+    $.ajax({
+      url: $profilesusernumberoftenschart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesusernumberoftenschart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 60
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Number of 10s'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesusercancellationofbadshot40shot_json"
+    data-url="{% url 'profilesusercancellationofbadshot40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesusercancellationofbadshotchart = $("#profilesusercancellationofbadshot40shot_json");
+    $.ajax({
+      url: $profilesusercancellationofbadshotchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesusercancellationofbadshotchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Cancellation of bad shot'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+
+<div id="container" style="width: 100%;">
+<canvas id="profilesusercancellationofbadshot60shot_json"
+  data-url="{% url 'profilesusercancellationofbadshot60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesusercancellationofbadshotchart = $("#profilesusercancellationofbadshot60shot_json");
+    $.ajax({
+      url: $profilesusercancellationofbadshotchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesusercancellationofbadshotchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Cancellation of bad shot'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserstabilityofsightpicture40shot_json"
+    data-url="{% url 'profilesuserstabilityofsightpicture40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserstabilityofsightpicturechart = $("#profilesuserstabilityofsightpicture40shot_json");
+    $.ajax({
+      url: $profilesuserstabilityofsightpicturechart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserstabilityofsightpicturechart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Stability of sight picture'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserstabilityofsightpicture60shot_json"
+    data-url="{% url 'profilesuserstabilityofsightpicture60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserstabilityofsightpicturechart = $("#profilesuserstabilityofsightpicture60shot_json");
+    $.ajax({
+      url: $profilesuserstabilityofsightpicturechart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserstabilityofsightpicturechart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Stability of sight picture'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserbodybalance40shot_json"
+    data-url="{% url 'profilesuserbodybalance40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserbodybalancechart = $("#profilesuserbodybalance40shot_json");
+    $.ajax({
+      url: $profilesuserbodybalancechart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserbodybalancechart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Body Balance'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserbodybalance60shot_json"
+    data-url="{% url 'profilesuserbodybalance60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserbodybalancechart = $("#profilesuserbodybalance60shot_json");
+    $.ajax({
+      url: $profilesuserbodybalancechart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserbodybalancechart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Body Balance'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserflowoftheshot40shot_json"
+    data-url="{% url 'profilesuserflowoftheshot40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserflowoftheshotchart = $("#profilesuserflowoftheshot40shot_json");
+    $.ajax({
+      url: $profilesuserflowoftheshotchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserflowoftheshotchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Flow of the shot'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserflowoftheshot60shot_json"
+    data-url="{% url 'profilesuserflowoftheshot60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserflowoftheshotchart = $("#profilesuserflowoftheshot60shot_json");
+    $.ajax({
+      url: $profilesuserflowoftheshotchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserflowoftheshotchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Flow of the shot'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserninetydegreetriggeroperation40shot_json"
+    data-url="{% url 'profilesuserninetydegreetriggeroperation40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserninetydegreetriggeroperationchart = $("#profilesuserninetydegreetriggeroperation40shot_json");
+    $.ajax({
+      url: $profilesuserninetydegreetriggeroperationchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserninetydegreetriggeroperationchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Ninety Degree Trigger Operation'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserninetydegreetriggeroperation60shot_json"
+    data-url="{% url 'profilesuserninetydegreetriggeroperation60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserninetydegreetriggeroperationchart = $("#profilesuserninetydegreetriggeroperation60shot_json");
+    $.ajax({
+      url: $profilesuserninetydegreetriggeroperationchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserninetydegreetriggeroperationchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Ninety Degree Trigger Operation'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuseraverageshotduration40shot_json"
+    data-url="{% url 'profilesuseraverageshotduration40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuseraverageshotdurationchart = $("#profilesuseraverageshotduration40shot_json");
+    $.ajax({
+      url: $profilesuseraverageshotdurationchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuseraverageshotdurationchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Average Shot Duration'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuseraverageshotduration60shot_json"
+    data-url="{% url 'profilesuseraverageshotduration60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuseraverageshotdurationchart = $("#profilesuseraverageshotduration60shot_json");
+    $.ajax({
+      url: $profilesuseraverageshotdurationchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuseraverageshotdurationchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Average Shot Duration'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserfollowthrough40shot_json"
+    data-url="{% url 'profilesuserfollowthrough40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserfollowthroughchart = $("#profilesuserfollowthrough40shot_json");
+    $.ajax({
+      url: $profilesuserfollowthroughchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserfollowthroughchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Follow Through'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserfollowthrough60shot_json"
+    data-url="{% url 'profilesuserfollowthrough60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserfollowthroughchart = $("#profilesuserfollowthrough60shot_json");
+    $.ajax({
+      url: $profilesuserfollowthroughchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserfollowthroughchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Follow Through'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuservisualization40shot_json"
+    data-url="{% url 'profilesuservisualization40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuservisualizationchart = $("#profilesuservisualization40shot_json");
+    $.ajax({
+      url: $profilesuservisualizationchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuservisualizationchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Visualization Chart'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuservisualization60shot_json"
+    data-url="{% url 'profilesuservisualization60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuservisualizationchart = $("#profilesuservisualization60shot_json");
+    $.ajax({
+      url: $profilesuservisualizationchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuservisualizationchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Visualization Chart'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesusermentalstability40shot_json"
+    data-url="{% url 'profilesusermentalstability40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesusermentalstabilitychart = $("#profilesusermentalstability40shot_json");
+    $.ajax({
+      url: $profilesusermentalstabilitychart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesusermentalstabilitychart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Mental Stability'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesusermentalstability60shot_json"
+    data-url="{% url 'profilesusermentalstability60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesusermentalstabilitychart = $("#profilesusermentalstability60shot_json");
+    $.ajax({
+      url: $profilesusermentalstabilitychart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesusermentalstabilitychart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Mental Stability'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserhydrationlevel40shot_json"
+    data-url="{% url 'profilesuserhydrationlevel40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserhydrationlevelchart = $("#profilesuserhydrationlevel40shot_json");
+    $.ajax({
+      url: $profilesuserhydrationlevelchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserhydrationlevelchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Hydration Level'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserhydrationlevel60shot_json"
+    data-url="{% url 'profilesuserhydrationlevel60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserhydrationlevelchart = $("#profilesuserhydrationlevel60shot_json");
+    $.ajax({
+      url: $profilesuserhydrationlevelchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserhydrationlevelchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Hydration Level'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserfueling40shot_json"
+    data-url="{% url 'profilesuserfueling40shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserfuelingchart = $("#profilesuserfueling40shot_json");
+    $.ajax({
+      url: $profilesuserfuelingchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserfuelingchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'pink',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Fueling'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+<div id="container" style="width: 100%;">
+  <canvas id="profilesuserfueling60shot_json"
+    data-url="{% url 'profilesuserfueling60shot_json' username=username %}"></canvas>
+</div>
+
+
+<script>
+
+  $(function () {
+
+    var $profilesuserfuelingchart = $("#profilesuserfueling60shot_json");
+    $.ajax({
+      url: $profilesuserfuelingchart.data("url"),
+      success: function (data) {
+
+        var ctx = $profilesuserfuelingchart[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Score',
+              backgroundColor: 'blue',
+              data: data.data
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 5
+                }
+              }]
+            },
+            legend: {
+              position: 'top',
+            },
+            "animation": {
+              "duration": 1,
+              "onComplete": function () {
+                var chartInstance = this.chart,
+                  ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  var meta = chartInstance.controller.getDatasetMeta(i);
+                  meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                  });
+                });
+              }
+            },
+            title: {
+              display: true,
+              text: 'Fueling'
+            }
+          }
+        });
+
+      }
+    });
+
+  });
+
+</script>
+
+
+<h3>Today Performace</h3>
+{% if dailylist %}
+{% for each in dailylist %}
+<table class="table">
+  <thead>
+    <tr>
+      <!-- <th scope="col">Shooter Id</th> -->
+      <th scope="col">Match Date</th>
+      <th scope="col">Match Score</th>
+      <th scope="col">Higheast Series Score</th>
+      <th scope="col">Number of 10's</th>
+      <th scope="col">Cancellation of bad shot</th>
+      <th scope="col">Stability of sight picture</th>
+      <th scope="col">Body balance</th>
+      <th scope="col">Flow of the shot</th>
+      <th scope="col">Ninety degree trigger operation</th>
+      <th scope="col">Average shot duration</th>
+      <th scope="col">Follow through</th>
+      <th scope="col">Visualization</th>
+      <th scope="col">Mental Stability</th>
+      <th scope="col">Hydration level</th>
+      <th scope="col">Fueling</th>
+      <th scope="col">Ability of the day</th>
+      <th scope="col">Correction of the day</th>
+      <th scope="col">Planning for the next practice</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <!-- <td scope="row"> {{each.username}} </td> -->
+      <td> {{each.matchDate}} </td>
+      <td> {{each.matchscore}} </td>
+      <td> {{each.higheastseriesscore}} </td>
+      <td> {{each.numberoftens}} </td>
+      <td> {{each.cancellationofbadshot}} </td>
+      <td> {{each.stabilityofsightpicture}} </td>
+      <td> {{each.bodybalance}} </td>
+      <td> {{each.flowoftheshot}} </td>
+      <td> {{each.ninetydegreetriggeroperation}} </td>
+      <td> {{each.averageshotduration}} </td>
+      <td> {{each.followthrough}} </td>
+      <td> {{each.visualization}} </td>
+      <td> {{each.mentalstability}} </td>
+      <td> {{each.hydrationlevel}} </td>
+      <td> {{each.fueling}} </td>
+      <td> {{each.abilityoftheday}} </td>
+      <td> {{each.correctionoftheday}} </td>
+      <td> {{each.planningforthenextpractice}} </td>
+    </tr>
+  </tbody>
+</table>
+{% endfor %}
+{% else %}
+<p>Nothing to display</p>
+{% endif %}
+
+<!-- <h3>Monthly Data</h3>
+{% if profileuserlist %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Shooter Id</th>
+      <th scope="col">Match Date</th>
+      <th scope="col">Match Score</th>
+      <th scope="col">Higheast series Score</th>
+      <th scope="col">Number of 10's</th>
+      <th scope="col">Cancellation of bad shot</th>
+      <th scope="col">Stability of Sight picture</th>
+      <th scope="col">Body balance</th>
+      <th scope="col">Flow of shot</th>
+      <th scope="col">90&#176; trigger operation</th>
+      <th scope="col">Average shot duration</th>
+      <th scope="col">Follow through</th>
+      <th scope="col">Visualization</th>
+      <th scope="col">Mental Stability</th>
+      <th scope="col">Hydration Level</th>
+      <th scope="col">Fueling</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for each in profileuserlist %}
+    <tr>
+      <td scope="row"> {{each.username}} </td>
+      <td> {{each.matchDate}} </td>
+      <td> {{each.matchscore}} </td>
+      <td> {{each.higheastseriesscore}} </td>
+      <td> {{each.numberoftens}} </td>
+      <td> {{each.cancellationofbadshot}} </td>
+      <td> {{each.stabilityofsightpicture}} </td>
+      <td> {{each.bodybalance}} </td>
+      <td> {{each.flowoftheshot}} </td>
+      <td> {{each.ninetydegreetriggeroperation}} </td>
+      <td> {{each.averageshotduration}} </td>
+      <td> {{each.followthrough}} </td>
+      <td> {{each.visualization}} </td>
+      <td> {{each.mentalstability}} </td>
+      <td> {{each.hydrationlevel}} </td>
+      <td> {{each.fueling}} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% else %}
+<p>Nothing to display</p>
+{% endif %} -->
+<h3>Recent Score</h3>
+{% if profilequarteruserlist %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <!-- <th scope="col">Shooter Id</th> -->
+      <th scope="col">Match Date</th>
+      <th scope="col">Match Score</th>
+      <th scope="col">Higheast series Score</th>
+      <th scope="col">Number of 10's</th>
+      <th scope="col">Cancellation of bad shot</th>
+      <th scope="col">Stability of Sight picture</th>
+      <th scope="col">Body balance</th>
+      <th scope="col">Flow of shot</th>
+      <th scope="col">90&#176; trigger operation</th>
+      <th scope="col">Average shot duration</th>
+      <th scope="col">Follow through</th>
+      <th scope="col">Visualization</th>
+      <th scope="col">Mental Stability</th>
+      <th scope="col">Hydration Level</th>
+      <th scope="col">Fueling</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for each in profilequarteruserlist %}
+    <tr>
+      <!-- <td scope="row"> {{each.username}} </td> -->
+      <td> {{each.matchDate}} </td>
+      <td> {{each.matchscore}} </td>
+      <td> {{each.higheastseriesscore}} </td>
+      <td> {{each.numberoftens}} </td>
+      <td> {{each.cancellationofbadshot}} </td>
+      <td> {{each.stabilityofsightpicture}} </td>
+      <td> {{each.bodybalance}} </td>
+      <td> {{each.flowoftheshot}} </td>
+      <td> {{each.ninetydegreetriggeroperation}} </td>
+      <td> {{each.averageshotduration}} </td>
+      <td> {{each.followthrough}} </td>
+      <td> {{each.visualization}} </td>
+      <td> {{each.mentalstability}} </td>
+      <td> {{each.hydrationlevel}} </td>
+      <td> {{each.fueling}} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+{% else %}
+<p>Nothing to display</p>
+{% endif %}
+
+{% endblock %}
